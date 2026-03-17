@@ -18,6 +18,8 @@ import {
   ResponsiveContainer
 } from "recharts";
 
+import { API_BASE_URL } from "../../config/api";
+
 const SuperAdminAnalytics = () => {
 
   const navigate = useNavigate();
@@ -52,7 +54,7 @@ const SuperAdminAnalytics = () => {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/superadmin/analytics",
+        `${API_BASE_URL}/superadmin/analytics`,
         {
           headers: {
             Authorization: `Bearer ${token}`

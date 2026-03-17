@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FaUserShield } from "react-icons/fa";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { useAuth } from "../../context/AuthContext";
+import { API_BASE_URL } from "../../config/api";
 
 const SuperAdminLogin = () => {
 
@@ -24,7 +25,7 @@ const SuperAdminLogin = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${API_BASE_URL}/auth/login`,
         {
           email: credentials.email,
           password: credentials.password,

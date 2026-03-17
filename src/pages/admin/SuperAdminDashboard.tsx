@@ -9,6 +9,7 @@ import {
   FaCopy
 } from "react-icons/fa";
 import AdminLayout from "../../components/AdminLayout";
+import { API_BASE_URL } from "../../config/api";
 
 interface Restaurant {
   _id: string;
@@ -49,7 +50,7 @@ const SuperAdminDashboard: React.FC = () => {
       const token = getToken();
 
       const res = await fetch(
-        "https://restom-backend-2.onrender.com/api/superadmin/restaurants",
+        `${API_BASE_URL}/superadmin/restaurants`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -87,8 +88,7 @@ const SuperAdminDashboard: React.FC = () => {
       const token = getToken();
 
       await fetch(
-        `https://restom-backend-2.onrender.com/api/superadmin/restaurants/${siteCode}/status`,
-        {
+        `${API_BASE_URL}/superadmin/restaurants/${siteCode}/status`,        {
           method: "PUT",
           headers: {
             Authorization: `Bearer ${token}`,

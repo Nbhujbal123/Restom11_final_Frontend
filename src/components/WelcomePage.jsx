@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import Login from '../pages/customer/Login'
 import Signup from '../pages/customer/Signup'
 import { toast } from '../components/Toast'
+import { API_BASE_URL } from '../config/api'
 
 const WelcomePage = () => {
   const navigate = useNavigate()
@@ -29,7 +30,7 @@ const WelcomePage = () => {
 
   const handleLogin = async (email, password, siteCode) => {
     try {
-      const response = await fetch('https://restom-backend-2.onrender.com/api/auth/login', {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -57,7 +58,7 @@ const WelcomePage = () => {
 
   const handleSignup = async (userData) => {
     try {
-      const response = await fetch('https://restom-backend-2.onrender.com/api/auth/signup', {
+      const response = await fetch(`${API_BASE_URL}/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
